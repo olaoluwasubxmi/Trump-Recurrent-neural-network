@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Random Text Generator</title>
+  <style>
+    /* Add some styling here */
+  </style>
+</head>
+<body>
+  <h1>Random Text Generator</h1>
+  <button id="generate-button">Generate</button>
+  <div id="output"></div>
+
+  <script>
+    // Add the JavaScript code here
+    const generateButton = document.getElementById("generate-button");
+    const outputDiv = document.getElementById("output");
+
+    async function generateRandomText() {
+  // Retrieve the text file
+  const response = await fetch("file.txt");
+  const text = await response.text();
+
+  // Split the file into an array of lines
+  const lines = text.split("\n");
+
+  // Select a random line
+  const randomLine = lines[Math.floor(Math.random() * lines.length)];
+
+  // Display the selected line on the website
+  outputDiv.innerHTML = randomLine;
+}
+
+    generateButton.addEventListener("click", generateRandomText);
+    
+  </script>
+</body>
+</html>
