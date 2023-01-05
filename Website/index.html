@@ -10,7 +10,6 @@
   <h1 align="center">Trump Recurrent Neural Network Tweet Generator</h1>
   <div align="center">
     <button id="generate-button">Generate</button>
-
   </div>
   <div id="output"></div>
 
@@ -20,22 +19,21 @@
     const outputDiv = document.getElementById("output");
 
     async function generateRandomText() {
-  // Retrieve the text file
-  const response = await fetch("file.txt");
-  const text = await response.text();
+      // Retrieve the text file
+      const response = await fetch("file.txt");
+      const text = await response.text();
 
-  // Split the file into an array of lines
-  const lines = text.split("\n");
+      // Split the file into an array of lines
+      const lines = text.split("\n");
 
-  // Select a random line
-  const randomLine = lines[Math.floor(Math.random() * lines.length)];
+      // Select a random line
+      const randomLine = lines[Math.floor(Math.random() * lines.length)];
 
-  // Display the selected line on the website
-  outputDiv.innerHTML = randomLine;
-}
+      // Display the selected line on the website
+      outputDiv.innerHTML = randomLine;
+    }
 
     generateButton.addEventListener("click", generateRandomText);
-    
   </script>
 </body>
 </html>
